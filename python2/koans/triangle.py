@@ -19,8 +19,14 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
-
+    uniques = len(set([a,b,c]))
+    choices = [
+        'not a triangle', 
+        'equilateral',
+        'isosceles',
+        'scalene'
+    ]
+    return choices[uniques]
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
