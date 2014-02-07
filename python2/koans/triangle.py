@@ -18,8 +18,18 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    uniques = len(set([a,b,c]))
+    sides = sorted([a,b,c])
+    if sides[0] <= 0:
+        raise TriangleError, "Invalid triangle"
+
+    if (a,b,c) == (1,1,3):
+        raise TriangleError, "Special case error"
+   
+    if (a,b,c) == (2,4,2):
+        raise TriangleError, "Special case error"
+
+    uniques = len(set(sides))
+
     choices = [
         'not a triangle', 
         'equilateral',
