@@ -35,7 +35,30 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    if len(dice) == 0:
+        return 0
+    cnt = {}
+    for n in dice:
+        cnt[n] = cnt.get(n, 0) + 1
+
+    score = 0
+
+    for n, c in cnt.items():
+        if c >= 3:
+            if n == 1:
+                score += 1000 + (c-3)*100
+            else:
+                score += n*100
+                if n == 5:
+                    score += (c-3)*50
+        else:
+            if n == 1:
+                score += c*100
+            elif n == 5:
+                score += c*50
+            else:
+                continue
+    return score
 
 
 class AboutScoringProject(Koan):
